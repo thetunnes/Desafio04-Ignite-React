@@ -19,14 +19,7 @@ export interface FoodProps {
   image: string;
 }
 
-export async function Dashboard(food: FoodProps) {
-
-    // this.state = {
-    //   foods: [],
-    //   editingFood: {},
-    //   modalOpen: false,
-    //   editModalOpen: false,
-    // }
+export function Dashboard(food: FoodProps) {
 
   const [ foods, setFoods ] = useState<FoodProps[]>([])
   const [ editingFood, setEditingFood] = useState<FoodProps>({} as FoodProps)
@@ -83,15 +76,12 @@ export async function Dashboard(food: FoodProps) {
   }
 
   function toggleModal() {
-    const toggleModal = modalOpen ? !modalOpen : modalOpen
-
-    setModalOpen(toggleModal);
+    setModalOpen(!modalOpen);
   }
 
   function toggleEditModal() {
-    const toggleEditModal = false ? true : false
 
-    setEditModalOpen(toggleEditModal);
+    setEditModalOpen(!editModalOpen);
   }
 
   function handleEditFood(food: FoodProps) {
