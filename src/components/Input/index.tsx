@@ -5,12 +5,22 @@ import {
   useCallback,
 } from 'react';
 
-import { useField } from '@unform/core';
+import { IconBaseProps } from 'react-icons/lib'
+import { IconBase } from 'react-icons';
 
+import { useField } from '@unform/core';
 import { Container } from './styles';
 
-const Input = ({ name, icon: Icon, ...rest }) => {
-  const inputRef = useRef(null);
+
+interface InputProps {
+
+  name: string;
+  icon?: IconBaseProps;
+  placeholder?: string;
+}
+
+export function Input({ name, icon: Icon, ...rest }: InputProps) {
+  const [inputRef] = useState(useRef(null));
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
@@ -24,7 +34,8 @@ const Input = ({ name, icon: Icon, ...rest }) => {
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
 
-    setIsFilled(!!inputRef.current?.value);
+    setIsFilled(!!inputRef.current);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -33,11 +44,12 @@ const Input = ({ name, icon: Icon, ...rest }) => {
       ref: inputRef.current,
       path: 'value',
     });
+    // eslint-disable-next-line
   }, [fieldName, registerField]);
 
   return (
     <Container isFilled={isFilled} isFocused={isFocused}>
-      {Icon && <Icon size={20} />}
+      {Icon && <IconBase size={20} />}
 
       <input
         onFocus={handleInputFocus}
@@ -50,4 +62,3 @@ const Input = ({ name, icon: Icon, ...rest }) => {
   );
 };
 
-export default Input;
