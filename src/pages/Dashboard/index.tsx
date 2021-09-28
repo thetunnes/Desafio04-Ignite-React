@@ -32,7 +32,7 @@ export function Dashboard(food: FoodProps) {
     api.get('/foods').then(response => {
       setFoods( response.data );
     });
-  })
+  }, [])
 
   async function handleAddFood(food: FoodProps) {
 

@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: #fff;
     color: #FFF;
+
     -webkit-font-smoothing: antialiased;
   }
 

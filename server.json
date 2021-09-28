@@ -18,11 +18,11 @@
     },
     {
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
-      "name": "Da Casa",
-      "price": "24,90",
-      "description": "Macarrão delicioso com molho, alho e frango, o melhor da cidade!",
+      "name": "La Franguelito",
+      "price": "27,90",
+      "description": "Macarrão com ervas e frango criado no Monte Everest, o melhor frango do mundo!",
       "available": true,
-      "id": 4
+      "id": 5
     }
   ]
 }
